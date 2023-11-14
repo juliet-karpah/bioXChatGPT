@@ -15,7 +15,7 @@ async def startup_db_client():
 async def shutdown_db_client():
     app.mongodb_client.close()
 
-app.include_router(users.router, prefix="/api/v1")
+app.include_router(users.router, tags=["users"], prefix="/api/v1")
 
 @app.get("/")
 async def root():
