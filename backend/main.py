@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.routes import users
 from motor.motor_asyncio import AsyncIOMotorClient
-import settings
+from settings import settings
 
 app = FastAPI()
 
