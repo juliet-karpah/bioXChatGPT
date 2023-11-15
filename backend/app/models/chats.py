@@ -7,6 +7,7 @@ class ChatUnit(NamedTuple):
     answer: List[str]
 
 class Chat(BaseModel):
+    id: str
     user_id: str
     title: str
-    sections: List[ChatUnit.id]
+    chatUnits: List[ChatUnit.id]

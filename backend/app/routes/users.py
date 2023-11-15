@@ -1,10 +1,14 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 
 router = APIRouter(prefix="/users")
 
 @router.get("/", response_description="List All Users")
-async def get_users():
-    return ["juliet", "John"]
+async def get_users(request: Request):
+    users = []
+    query = await request.app.mongodb['users'].find().to_list(length=100)
+    for doc in query:
+        users.append(doc)
+    return users
 
 @router.get("/{user_id}", response_description="Get One User")
 async def get_user(user_id):
