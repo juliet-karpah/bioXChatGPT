@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, HTTPException
 
 router = APIRouter(prefix="/users")
 
@@ -9,10 +9,12 @@ async def get_users(request: Request):
     for doc in query:
         users.append(doc)
     return users
+    
 
 @router.get("/{user_id}", response_description="Get One User")
 async def get_user(user_id):
     return {"user_id": user_id}
+    # raise HTTPException(status_code=404, detail=f"User {user_id} not found")
 
 @router.get("/{user_id}/chats", response_description="Get chats for a user")
 async def get_user_chats():
