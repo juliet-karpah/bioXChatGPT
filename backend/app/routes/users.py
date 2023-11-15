@@ -1,6 +1,6 @@
-from fastapi import APIRoute
+from fastapi import APIRouter
 
-router = APIRoute(prefix="/users")
+router = APIRouter(prefix="/users")
 
 @router.get("/", response_description="List All Users")
 async def get_users():
