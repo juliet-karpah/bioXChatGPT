@@ -11,3 +11,6 @@ class Chat(BaseModel):
     user_id: str
     title: str
     chat_units: List[ChatUnit]
+
+class ChatCollection(BaseModel):
+    chats: List[Chat]
