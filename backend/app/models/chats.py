@@ -10,7 +10,7 @@ class Chat(BaseModel):
     id: str
     user_id: str
     title: str
-    chat_units: List[ChatUnit]
+    # chat_units: List[ChatUnit]
 
 class ChatCollection(BaseModel):
     chats: List[Chat]
