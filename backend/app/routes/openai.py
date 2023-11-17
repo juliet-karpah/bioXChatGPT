@@ -5,8 +5,7 @@ from settings import settings
 
 router = APIRouter(prefix="/openai")
 print("ai", settings.OPENAI_API_KEY)
-client = OpenAI(api_key="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")
-# client = OpenAI(api_key=settings.OPENAI_API_KEY)
+client = OpenAI(api_key=settings.OPENAI_API_KEY)
 
 
 @router.get("/")
